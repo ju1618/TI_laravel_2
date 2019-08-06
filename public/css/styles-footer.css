@@ -1,0 +1,57 @@
+
+  .st-footer{
+    margin: 0;
+    margin-top: 20px;
+    width:100%;
+    height:auto;
+    clear:both;
+  }
+  .menu{
+    background-color: rgb(75, 209, 182);
+    padding: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    height: auto;
+    }
+
+  .mi-boton-redsocial {
+    color: white;
+  }
+
+  .mi-boton-redsocial  i {
+    font-size: 200%;
+    color: rgba(207,23,81);
+
+  }
+
+  .mi-boton-redsocial:hover {
+    color: #7D3C98;
+    font-size: 15px;
+  }
+
+  .mis-redes-sociales p {
+    color: black;
+  }
+
+  .lista-de-secciones ol{
+    list-style-type: circle;
+  }
+
+  .lista-de-secciones li a{
+    text-decoration: none;
+    color: #000;
+  }
+
+  .mapa{
+    padding-left: 2%;
+    padding-right: 0;
+    margin-right: 0;
+  }
+
+  .menu-maps, .contacto, .lista-de-secciones{
+    margin-top: 10px;
+  }
+
+.footer-link a{
+  color: #000;
+}

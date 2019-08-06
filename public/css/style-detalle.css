@@ -1,0 +1,96 @@
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+  font-family:'Fira Sans', sans-serif;;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+  background-image: url("../images/colorclaro.jpg");
+  background-size: cover;
+  background-color: gray;
+  overflow: auto;
+}
+
+strong {
+  font-weight: 500;
+}
+
+a, a:hover, a:focus {
+  text-decoration: none;
+}
+
+
+h1, h2 {
+  margin-top: 10px;
+  font-size: 38px;
+  font-weight: 100;
+  line-height: 50px;
+  color: #82E0AA;
+}
+
+h3 {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  font-size: 30px;
+  font-weight: 100;
+  line-height: 50px;
+  color: black;
+}
+
+.container-detalle {
+  overflow: hidden;
+}
+
+.contenedor-detalle {
+  padding: 0px 0 0px 0;
+  overflow: hidden;
+  margin-top: 145px;
+}
+
+.contenedor-detalle .detalle-descripciones {
+  margin: 20px 0 10px 0;
+}
+
+.mi-contenedor .detalle-descripciones p {
+  color: #4bd1b6;
+  padding: 0;
+  margin: 0;
+}
+
+.mi-cabecera-detalle {
+  overflow: hidden;
+  padding: 0 25px 0 25px;
+  background: #F52854;
+  -moz-border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid white;
+}
+
+.mi-principal-detalle {
+  padding: 25px 25px 25px 25px;
+  background: #F42450;
+  opacity: 0.9;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 10px;
+}
+
+.mi-principal-detalle .mi-boton {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+
+.imagen-producto{
+  max-height: 200px;
+}
+
+.descripcion-detalle, .publicadoPor{
+  font-size: 0.8em;
+}

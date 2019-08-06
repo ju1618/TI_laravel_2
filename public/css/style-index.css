@@ -1,0 +1,259 @@
+
+*{
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-family:'Fira Sans', sans-serif;;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+  background-size: cover;
+  background-color: gray;
+  overflow: auto;
+}
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+.main-container-index{
+  background-image: url("../images/colorclaro.jpg");
+  background-size:cover;
+}
+
+.carrousel-top{
+  max-height: 340px;
+}
+
+header{
+margin-bottom:10px;
+}
+.social-links {
+position: fixed;
+left: 0;
+top: 50%;
+border: solid 1px rgba(24, 97, 62, 0.75);
+border-radius: 3px;
+transform: translateY(-50%);
+}
+.social-links nav ul{
+list-style: none;
+}
+.social-links img{
+width: 2vw;
+}
+
+.main-content-product{
+overflow: hidden;
+display: inline-flex;
+flex-direction: row;
+flex-flow: wrap;
+justify-content: space-around;
+background-color: white;
+width: 95vw;
+padding: 10px;
+margin: 50px 10px 10px 30px;
+}
+#content-product{
+background-color: rgba(191, 194, 188, 0.55);
+width: 30vw;
+border-radius: 10px;
+margin: 5px;
+}
+#content-product img {
+width: 20vw;
+padding-top: 10px;
+}
+#carouselExampleInterval {
+   position: relative;
+}
+.carousel-control-prev  img,
+.carousel-control-next img {
+  width: 100%;
+  position:relative;
+  top: 25%;
+
+}
+.carousel-control-prev
+.carousel-control-next {
+  width: 20px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+}
+.arrow-control{
+  background-color: rgb(193, 193, 193);
+  width: 25px;
+  height: 65px;
+  border-radius: 2px;
+}
+
+.carousel-control-prev .arrow-control{
+  display: none;
+}
+.carousel-control-next .arrow-control{
+  display: none;
+
+}
+
+.carousel-control-prev:hover .arrow-control,
+.carousel-control-next:hover .arrow-control{
+  display: block;
+}
+
+.carousel-item a {
+  display: none;
+  text-decoration: none;
+}
+.carousel-item:hover a{
+  display: block;
+}
+.carousel-item .logo-mkp{
+  padding:30px 500px;
+}
+.carousel-item h1{
+  font-family:  Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+}
+
+/* ------inicio de los media querys------- */
+/* inicio de mquery 767 */
+@media (max-width: 767px) {
+  .carousel-item .logo-mkp{
+    display: none;
+    background-image: url("../images/log.png");
+  }
+  .carousel-item img{
+    height: 50vw;
+    margin-top: 35px;
+  }
+  .main-content-product{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    background-color: white;
+    width: 95vw;
+    margin: 20px 10px 10px 30px;
+  }
+  #content-product{
+    box-sizing: content-box;
+    background-color: rgba(191, 194, 188, 0.55);
+    width: 40vw;
+    border-radius: 10px;
+    padding: 1px;
+  }
+  #content-product img {
+    /* width:70px; */
+    height: 75px;
+    padding-top: 10px;
+    object-fit: contain;
+  }
+  #content-product h2{
+    object-fit: contain;
+    font-size: 15px;
+  }
+  #content-product span{
+    font-size: 10px;
+  }
+  .social-links {
+    display: none;
+
+  }
+  .main-content-product {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    margin:10px;
+    background-color: white;
+    width: 80vw;
+    padding: 10px;
+  }
+  #content-product{
+    background-color: rgba(191, 194, 188, 0.55);
+    width: 100vw;
+    border-radius: 10px;
+    margin:10px;
+  }
+  #content-product img {
+    width: 80px;
+    padding-top: 10px;
+  }
+  .main-content-product{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content:space-around;
+    background-color: white;
+    width: 95vw;
+    padding: 10px;
+    margin: 50px 10px 10px 30px;
+  }
+  #content-product{
+    background-color: rgba(191, 194, 188, 0.55);
+    width: 30vw;
+    border-radius: 10px;
+  }
+  #content-product img {
+    width: 140px;
+    padding-top: 10px;
+  }
+}
+/* fin del mquery 767 */
+
+
+/* inicio del mquery 1024 */
+@media (min-width:1024px) {
+  .carousel-item .logo-mkp{
+    padding:30px 500px;
+  }
+  .carousel-item .main-carousel{
+    max-height: 500px;
+  }
+
+  header{
+    margin-bottom:10px;
+  }
+  .social-links {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    list-style: none;
+    border: solid 1px rgba(24, 97, 62, 0.75);
+    border-radius: 3px;
+    transform: translateY(-50%);
+  }
+  /* .social-links nav ul li{
+  list-style: none;
+} */
+  .social-links img{
+    width: 2vw;
+  }
+  .carousel-item .main-carousel img{
+    height: 30vw;
+  }
+  .main-content-product{
+    overflow: hidden;
+    display: inline-flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-around;
+    background-color: white;
+    width: 95vw;
+    padding: 10px;
+    margin: 50px 10px 10px 30px;
+  }
+  #content-product{
+    background-color: rgba(191, 194, 188, 0.55);
+    width: 30vw;
+    border-radius: 10px;
+    margin: 5px;
+  }
+  #content-product img {
+    width: 140px;
+    padding-top: 10px;
+  }
+
+}
+  /* fin del mquery 1024px */

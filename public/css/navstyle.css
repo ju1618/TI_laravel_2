@@ -1,0 +1,33 @@
+
+.main-nav{
+  position: fixed;
+  width:100%;
+  height:auto;
+  left: 0;
+  top: 0;
+  clear:both;
+  z-index: 200;
+  padding:10px;
+  display: inline-flex;
+  background-color: #4bd1b6;
+}
+
+.main-nav li{
+  position: relative;
+  display:inline-block;
+  font-size: 20px;
+  padding-top: 10px;
+  margin-right: 5px;
+  color: #fff;
+}
+.main-nav li a{
+  color: #fff;
+}
+
+.logo{
+  max-height: 80px;
+  width: auto;
+  clear:both;
+  display: block; /*esto es para poder aplicarle el margin auto, es solo para elementos de bloque*/
+  margin:auto;
+}

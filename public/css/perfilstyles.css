@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,400i,500');
+
+@import url("http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
+
+@import url("https://necolas.github.io/normalize.css/8.0.1/normalize.css");
+
+@import url("navstyle.css");
+
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "Fira Sans", sans-serif; /*esto es para que si no carga la tipografia roboto me cargue la sans-serif*/
+  background-color: rgba(75,145,214,0.11);
+  /* background-image: url(../images/colorclaro.jpg); */
+  background-size:cover;
+}
+
+ul,
+ol{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+  color: inherit; /*esto significa que esta hereddando el color de su padre*/
+  display: inline-block; /*para que tome los margenes y no ocupe todo el ancho, esto lo uso por default*/
+}
+
+img{
+  width: 100%;/*para que tenga el ancho de us contenedor*/
+}
+
+/*--------hasta acá es el seteo de los estilos de la pagina-------------*/
+
+
+.fotousuario {
+ width: 40%;
+ height: auto;
+}
+
+.img {
+  width: 100%;
+}
+
+.productocomprado {
+  width: 10%;
+  height: auto;
+}
+
+.contenedorprincipal {
+    position: relative;
+    width: 100%;
+    margin-top: 130px;
+    overflow: auto;
+}
+
+.contenedor1 {
+  width: 35% ;
+  background-color: #4bd1b6;
+  float: left;
+  clear: both;
+  padding: 20px;
+  margin: 10px;
+  height: 1700px;
+  border-radius: 10px 10px;
+  text-align: center;
+  overflow: hidden;
+  border: 10px solid #F52854;
+}
+
+.contenedor2 {
+  width: 60%;
+  background-color: rgba(75,145,214,0.11);
+  float: right;
+  padding: 30px;
+  margin: 10px;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 10px 10px;
+  border: 10px solid #F52854;
+}
+
+.item {
+  font-size: 24px;
+}
+
+.contenedor3 {
+  width: 60%;
+  float: right;
+  background-color: beige;
+  padding: 30px;
+  margin: 10px;
+  height: 440px;
+  border: 10px solid #F52854;
+  overflow: hidden;
+  border-radius: 10px 10px;
+}
+
+.contenedor4 {
+  width: 60%;
+  float: right;
+  background-color: rgba(45,220,123,0.11);
+  padding: 30px;
+  margin: 10px;
+  height: 550px;
+  border: 10px solid #F52854;
+  overflow: hidden;
+  border-radius: 10px 10px;
+}
+
+.facturadecompra {
+  width: 28%;
+  height: auto;
+}
+
+.contenedor5 {
+  width: 60%;
+  float: right;
+  background-color: rgba(59,20,173,0.11);
+  padding: 30px;
+  margin: 10px;
+  height: 300px;
+  border: 10px solid #F52854;
+  overflow: hidden;
+  border-radius: 10px 10px;
+}
+
+.formularioDeContraseña {
+  display: flex;
+  overflow: hidden;
+  margin-top: 150px;
+  padding: 40px 35px 20px 25px;
+  background: #F52854;
+  -moz-border-radius: 10px 10px;
+  -webkit-border-radius: 10px 10px;
+  border-radius: 10px 10px;
+  width: 700px;
+  align-self: center;
+  align-content: space-between;
+}
+
+input[type="text"], input[type="password"] {
+  width: 400px;
+}
+
+@media screen and (max-width: 400px) {
+  .contenedorprincipal {
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .contenedor1, .contenedor2, .contenedor3, .contenedor4, .contenedor5 {
+    width: 100vw;
+    clear: both;
+  }
+}
