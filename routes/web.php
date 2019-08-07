@@ -20,8 +20,8 @@ Route::bind('product', function($slug){
 // });
 
 
-Route::get('profile', 'UserController@profile');
-Route::post('profile', 'UserController@update_avatar');
+Route::get('/home', 'UserController@profile');
+Route::post('/home', 'UserController@update_avatar');
 
 //Metodo de pago: Paypal
 //Enviamos el pedido a Paypal
@@ -47,15 +47,15 @@ Route::get('faq', 'FaqController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+//
+// Auth::routes();
+//
+// Route::get('/home', 'HomeController@index')->name('home');
+//
+// Auth::routes();
+//
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/logout', function(){
    Auth::logout();
