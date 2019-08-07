@@ -24,6 +24,7 @@ class UserController extends Controller
       $userToUpdate->lastname = $request->input('lastname');
 		  $userToUpdate->country = $request->input('country');
       $userToUpdate->email = $request->input('email');
+      $userToUpdate->password = $request->input('password');
 
       $imagen = $request->file('avatar');
       if($imagen){
@@ -47,7 +48,11 @@ class UserController extends Controller
       return view('home', array('user' => Auth::user()) );
     }
 
+    public function showChangePasswordForm(Request $request){
 
+
+        return view('changepassword');
+    }
 
     /**
      * Display a listing of the resource.

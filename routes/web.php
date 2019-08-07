@@ -22,6 +22,10 @@ Route::bind('product', function($slug){
 
 Route::get('/home', 'UserController@profile');
 Route::post('/home', 'UserController@update_avatar');
+Route::get('/changepassword', function() {
+  return view('changepassword');
+});
+Route::get('/changepassword','UserController@showChangePasswordForm');
 
 //Metodo de pago: Paypal
 //Enviamos el pedido a Paypal
