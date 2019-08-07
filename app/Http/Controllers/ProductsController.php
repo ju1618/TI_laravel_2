@@ -20,10 +20,10 @@ class ProductsController extends Controller
     {
         //
 
-         $products=Product::all();
-
-        // return view('products.index', compact('products'));
-        return view('layouts.template', compact('products'));
+        $products=Product::paginate(3);
+       $categories=Category::all();
+       // return view('products.index', compact('products'));
+       return view('index', compact('products', 'categories'));
 
     }
 
