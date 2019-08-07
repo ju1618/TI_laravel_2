@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Llamada a bootstrap y relacionados -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="{!! asset('js/validarForms.js') !!}"></script>
+    <script src="{!! asset('js/consume.js') !!}"></script>
 		<script>
 		$(document).on('ready', function() {
 			$('#show-hide-passwd').on('click', function(e) {
@@ -95,7 +96,10 @@
                                     {{ csrf_field() }}
                                       <!-- Agrupamientos de los inputs, usamos unas clases propias de bootstrap -->
                                       <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                                            <input type="text" name="username" value="{{ old('username') }}" placeholder="Ingresa tu usuario..." class="form-control" id="username" autocomplete="name" autofocus>
+                                            <input data-nombre="usuario" type="text" name="username" value="{{ old('username') }}" placeholder="Ingresa tu usuario..." class="form-control" id="username" autocomplete="name" autofocus>
+                                            <div class="invalid-feedback">
+
+                                            </div>
                                             @if ($errors->has('username'))
                                               <span class="help-block">
                                                 <strong>{{ $errors->first('username') }}</strong>
@@ -103,8 +107,11 @@
                                             @endif
                                       </div>
                                       <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                            <input type="password" name="password" placeholder="Ingresa tu password..." class="form-control" id="password" required>
+                                            <input data-nombre="password" type="password" name="password" placeholder="Ingresa tu password..." class="form-control" id="password">
 																						<i id="show-hide-passwd" action="hide" class="fas fa-eye-slash mi-check" aria-hidden="true"></i>
+                                            <div class="invalid-feedback">
+
+                                            </div>
                                             @if ($errors->has('password'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('password') }}</strong>
@@ -112,18 +119,27 @@
                                             @endif
                                       </div>
                                       <div class="form-group">
-                                            <input type="password" name="password_confirmation" placeholder="Repite tu password..." class="form-control" id="password-confirm" autocomplete="new-password" required>
+                                            <input data-nombre="re-password" type="password" name="password_confirmation" placeholder="Repite tu password..." class="form-control" id="password-confirm" autocomplete="new-password">
 																						<i id="show-hide-repasswd" action="hide" class="fas fa-eye-slash mi-check" aria-hidden="true"></i>
+                                            <div class="invalid-feedback">
+
+                                            </div>
                                       </div>
                                       <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                            <input type="text" name="name" value="{{ old('name') }}" placeholder="Ingresa tu nombre..." class="form-control" id="name-form">
+                                            <input data-nombre="nombre" type="text" name="name" value="{{ old('name') }}" placeholder="Ingresa tu nombre..." class="form-control" id="name-form">
+                                            <div class="invalid-feedback">
+
+                                            </div>
                                             @if ($errors->has('name'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('name') }}</strong>
                                                 </span>
                                             @endif                                      </div>
                                       <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
-                                            <input type="text" name="lastname" value="{{ old('lastname') }}" placeholder="Ingresa tu apellido..." class="form-control" id="lastname-form">
+                                            <input data-nombre="apellido" type="text" name="lastname" value="{{ old('lastname') }}" placeholder="Ingresa tu apellido..." class="form-control" id="lastname-form">
+                                            <div class="invalid-feedback">
+
+                                            </div>
                                             @if ($errors->has('lastname'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('lastname') }}</strong>
@@ -131,7 +147,10 @@
                                             @endif
                                       </div>
                                       <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                            <input type="text" name="email" value="{{ old('email') }}" placeholder="Ingresa tu email..." class="form-control" id="email-form">
+                                            <input data-nombre="email" type="text" name="email" value="{{ old('email') }}" placeholder="Ingresa tu email..." class="form-control" id="email-form">
+                                            <div class="invalid-feedback">
+
+                                            </div>
                                             @if ($errors->has('email'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('email') }}</strong>
@@ -139,60 +158,92 @@
                                             @endif
                                       </div>
                                       <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }}">
-                                        <label><b>País de nacimiento:</b></label>
-								                                <select
-                                                        id="country"
-									                                       name="country"
-									                                       class="form-control"
-								                                >
-									                              <!-- <option value="{{ old('country') }}">Elegí un país</option> -->
+                                        <select
+                                          data-nombre="pais"
+                                          class="form-control @error('country') is-invalid @enderror"
+                                          name="country"
+                                          id="country"
+                                        >
+                                         <option value="">Elegí un país</option>
+                                       </select>
+                                       <div class="invalid-feedback">
 
-										                            <option
-											                           value="Argentina"
+                                       </div>
+                                       @if ($errors->has('country'))
+                                           <span class="help-block">
+                                               <strong>{{ $errors->first('country') }}</strong>
+                                           </span>
+                                       @endif
 
-										                            >
-                                                  Elegi un pais
-										                            </option>
+                                     </div>
+                                     <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}" style="display: none;">
+                                        <select
+                                            data-nombre="provincia"
+                                            class="form-control @error('city') is-invalid @enderror"
+                                            name="city"
+                                            id="city"
+                                        >
+                                        <option value="">Elegí una provincia</option>
+                                      </select>
+                                      <div class="invalid-feedback">
 
-								                                </select>
-                                                @if ($errors->has('country'))
-                                                    <span class="help-block">
-                                                        <strong>{{ $errors->first('country') }}</strong>
-                                                    </span>
-                                                @endif
-							                        </div>
-                                      <!-- </div> -->
-                                      <div class="form-group{{ $errors->has('avatar') ? ' has-error' : '' }}">
-                                        <label><b>Imagen de perfil:</b></label>
-								                                  <div class="custom-file">
-									                                           <input
-										                                                   type="file"
-									 	                                                   name="avatar"
-										                                                   class="custom-file-input"
-									                                           >
-									                                           <label class="custom-file-label">Choose file...</label>
-                                                             @if ($errors->has('avatar'))
-                                                                 <span class="help-block">
-                                                                     <strong>{{ $errors->first('avatar') }}</strong>
-                                                                 </span>
-                                                             @endif
-								                                   </div>
                                       </div>
-                                      <button type="submit" name="button" class=" btn btn-primary mi-boton">Ingresar</button>
+                                      @if ($errors->has('city'))
+                                      <span class="help-block">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                      </span>
+                                      @endif
+                                    </div>
+                                    <!-- <div class="form-group{{ $errors->has('avatar') ? ' has-error' : '' }}" >
+                                          <div class="form-group{{ $errors->has('avatar') ? ' has-error' : '' }}">
+                                                <label><b>Imagen de perfil:</b></label>
+                                                   		<div class="custom-file">
+                                                   				<input
+                                                                        data-nombre="imagen"
+                                                   										  type="file"
+                                                   									 	  name="avatar"
+                                                   										  class="custom-file-input"
+                                                   					>
+                                                   					<label class="custom-file-label">Choose file...</label>
+                                                   		</div>
+                                                 </div>
+                                                 <div class="invalid-feedback">
+
+                                                 </div>
+                                                 @if ($errors->has('avatar'))
+                                                       <span class="help-block">
+                                                             <strong>{{ $errors->first('avatar') }}</strong>
+                                                       </span>
+                                                 @endif
+                                  </div> -->
+                        <div class="form-group{{ $errors->has('avatar') ? ' has-error' : '' }}">
+                          <div>
+                                <input data-nombre="imagen" id="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') }}">
+                                <div class="invalid-feedback">
+
+                                </div>
+                                @if ($errors->has('avatar'))
+                                      <span class="help-block">
+                                            <strong>{{ $errors->first('avatar') }}</strong>
+                                      </span>
+                                @endif
+                            </div>
+                        </div>
+
+                                  <button type="submit" name="button" class=" btn btn-primary mi-boton">Ingresar</button>
                                   </form>
                             </div>
                       </div>
                 </div>
-
-               </div>
+           </div>
 		             <footer class="mi-footer"><h5 class="mi-texto-footer">© 2017-2019 Company, Inc.</h5></footer>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-12 mi-sidebar">
             <ul class="nav navbar-nav list-inline">
-                <li class="list-inline-item"><a class="" href="/home"><i class="fas fa-home"></i></a></li>
-                <li class="list-inline-item"><a class="" href="/faq"><i class="fas fa-question"></i></li>
+                <li class="list-inline-item"><a class="" href="index.php"><i class="fas fa-home"></i></a></li>
+                <li class="list-inline-item"><a class="" href="faqs.php"><i class="fas fa-question"></i></li>
                 <li class="list-inline-item"><a class="" href="#"><i class="fas fa-headset"></i></li>
-								<li class="list-inline-item"><a class="" href="/profile"><i class="fas fa-user-alt"></i></a></li>
+								<li class="list-inline-item"><a class="" href="perfilusuario.php"><i class="fas fa-user-alt"></i></a></li>
             </ul>
           </div>
       </div>

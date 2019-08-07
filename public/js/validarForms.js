@@ -1,22 +1,17 @@
 window.addEventListener("load", function(event) {
-// Capturamos al formulario
+// Capturamos al formulario, agrego evento load porque no me tomaba el elemento, porque no cargo el DOM
 var theForm = document.querySelector('form');
 console.log(theForm);
-// Obtenemos todos los campos, pero parseamos la colecciÃ³n a un Array
+// Pasamos a array
 var formInputs = Array.from(theForm.elements);
-
-// Sacamos la 1er posiciÃ³n del array que es el un <input> hidden del token
+// Sacamos sacamos la posicion token
 formInputs.shift();
-
-// Sacamos al Ãºltimo elemento que es el <button>
+// Sacamos el boton
 formInputs.pop();
-
-// ExpresiÃ³n regular para validar solo nÃºmeros
+// Es un regex
 var regexNumber = /^\d+$/;
-
 // Objeto literal para verificar si un campo tiene error
 var errorsObj = {};
-
 // Recorremos el array y asignamos la validaciÃ³n bÃ¡sica
 formInputs.forEach(function (oneInput) {
 	// A cada campo le asignamos el evento blur y su funcionalidad
@@ -24,18 +19,16 @@ formInputs.forEach(function (oneInput) {
 			var erroresBE = document.getElementById('support-class');
 			console.log('es' + erroresBE);
 			if (erroresBE != null) {
-				erroresBE.style.display = 'none';				
+        //Si BE envio un msj de error EJ: 'Credenciales incorrectas' , lo limpio para que no se superponga al FE
+        erroresBE.style.display = 'none';
 			}
-
-
-
-		// Pregunto si el campo estÃ¡ vacÃ­o (previo trimeo de espacios)
+		// Pregunto si el campo esta vacio (previo trimeo de espacios)
 		if (this.value.trim() === '') {
-			// Si el campo estÃ¡ vacÃ­o, le agrego la clase 'is-invalid'
+			// Si el campo esta vacio,agrego la clase 'is-invalid'
 			this.classList.add('is-invalid');
 			//Voy a borrar el error de BE
 			// document.getElementsByClassName('help-block').style.visibility='hidden';
-			// Ademas, al <div> con clase 'invalid-feedback' le agremamos el texto de error
+			// Aremamos el texto de error
 			this.nextElementSibling.innerHTML = 'El campo <b>' + this.getAttribute('data-nombre') + '</b> es obligatorio. ';
 			// Si un campo tiene error, creamos una key con el nombre del campo y valor true
 			errorsObj[this.name] = true;
@@ -55,11 +48,38 @@ formInputs.forEach(function (oneInput) {
 			delete errorsObj[this.name];
 
 			// Validamos el tipo de dato del campo title
-			if (this.name === 'title') {
+			if (this.name === 'password') {
 				// Validamos que el texto insertado NO supere las 15 letras
-				if (this.value.length > 15) {
+				if (this.value.length < 5) {
 					this.classList.add('is-invalid');
-					this.nextElementSibling.innerHTML = 'El tÃ­tulo debe ser inferior a 15 letras';
+					this.nextElementSibling.innerHTML = 'La password debe tener mas de 5 caracteres.';
+					// Si un campo tiene error, creamos una key con el nombre del campo y valor true
+					errorsObj[this.name] = true;
+				}
+			}
+
+      // if (this.name === 'password') {
+      //   var validPass = /DH/;
+			// 	// Validamos que el texto contenga un patron tal como 'DH'
+			// 	if (!this.value.test(validPass)) {
+			// 		this.classList.add('is-invalid');
+			// 		this.nextElementSibling.innerHTML = 'Oh no.';
+			// 		// Si un campo tiene error, creamos una key con el nombre del campo y valor true
+			// 		errorsObj[this.name] = true;
+			// 	}
+			// }
+
+
+      //Validamos si las pass coinciden
+      if (this.name === 'password_confirmation') {
+				// Validamos que el contenido del campo re-pass sea igual al de pass
+        console.log('repass' + this.value);
+        var auxP = document.querySelector('password');
+        console.log('pass' + auxP.value);
+				if (this.value != this.previousSibling.value) {
+          console.log('pass distitntas')
+          // this.classList.add('is-invalid');
+					this.nextElementSibling.innerHTML = 'Las password deben coincidir.';
 					// Si un campo tiene error, creamos una key con el nombre del campo y valor true
 					errorsObj[this.name] = true;
 				}
@@ -69,9 +89,9 @@ formInputs.forEach(function (oneInput) {
 	});
 
 	/*
-		Validamos el campo poster para verificar la extensiÃ³n
+		Validamos el campo poster para verificar la extensión
 			- Lo hacemos fuera del evento blur
-			- Esta validaciÃ³n se dispara cuando el campo cambia de valor, cuando se ha seleccionado un archivo
+			- Se dispara cuando el campo cambia de valor, cuando se ha seleccionado un archivo
 	*/
 	if (oneInput.name === 'avatar') {
 		oneInput.addEventListener('change', function () {
@@ -80,16 +100,15 @@ formInputs.forEach(function (oneInput) {
 			// Array de estensiones permitidas
 			var acceptedExtensions = ['jpg', 'jpeg', 'png'];
 			/*
-				Buscamos la extensiÃ³n del archivo actual en nuestro array de extensiones permitidas
-				Si no se encuentra la extensiÃ³n dentro de nuestro array retorna undefined
+		          Busca extension , si no la encuentra da error
 			*/
 			var extensionIsOk = acceptedExtensions.find(function (ext) {
 				return ext === fileExtension;
 			});
 
-			// Validamos la extensiÃ³n
+			// Validamos la extension nuvamente
 			if (extensionIsOk === undefined) {
-				// Si la extensiÃ³n no es ninguna de la permitida
+				// Si la extension no es ninguna de la permitida
 				this.classList.add('is-invalid');
 				this.nextElementSibling.innerHTML = 'Formato invÃ¡lido. Los formatos soportados son jpg, jpeg y png';
 				// Si un campo tiene error, creamos una key con el nombre del campo y valor true
@@ -108,12 +127,10 @@ theForm.addEventListener('submit', function (event) {
 	// Al momento de SUBMITEAR el formulario iteramos los campos y validamos si estÃ¡n vacÃ­os
 	formInputs.forEach(function (input) {
 		if (input.value.trim() === '') {
-			// Si el campo estÃ¡ vacÃ­o creamos dentro del objeto de errores una key con valor true
+			// Si el campo esta vacio creamos dentro del objeto de errores una key con valor true
 			errorsObj[input.name] = true;
 			// Asiganmos la clase de CSS
 			input.classList.add('is-invalid');
-			//Voy a borrar el error de BE
-
 			// Mostramos el mensaje de error
 			input.nextElementSibling.innerHTML = 'El campo <b>' + input.getAttribute('data-nombre') + '</b> es obligatorio. ';
 		}
@@ -122,9 +139,10 @@ theForm.addEventListener('submit', function (event) {
 	console.log('Campos con errores:', errorsObj);
 	console.log('Cantidad de campos con errores:', Object.keys(errorsObj).length);
 
-	// Si el objeto que contiene los errores NO estÃ¡ vacÃ­o evitamos que se SUBMITEE el formulario
+	// Si el objeto que contiene los errores no esta vacÃ­o evitamos que se SUBMITEE el formulario
 	if (Object.keys(errorsObj).length > 0) {
 		event.preventDefault();
+    console.log('pervino el submit');
 	} else {
 		var bandera = true;
 	}
