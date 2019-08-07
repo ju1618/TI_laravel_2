@@ -74,9 +74,9 @@ formInputs.forEach(function (oneInput) {
       if (this.name === 'password_confirmation') {
 				// Validamos que el contenido del campo re-pass sea igual al de pass
         console.log('repass' + this.value);
-        var auxP = document.querySelector('password');
+        var auxP = document.getElementById('password');
         console.log('pass' + auxP.value);
-				if (this.value != this.previousSibling.value) {
+				if (this.value != auxP.value) {
           console.log('pass distitntas')
           // this.classList.add('is-invalid');
 					this.nextElementSibling.innerHTML = 'Las password deben coincidir.';
