@@ -60,6 +60,20 @@
           <li class="nav-item">
             <a class= "nav-link" href="/faq">FAQ</a>
           </li>
+
+          <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Colores</a>
+           <div class="dropdown-menu">
+             <button type="button" class="dropdown-item rounded-pill"  id="button1" style="background-color: rgb(196, 35, 199);" >Pink</button>
+             <div class="dropdown-divider"></div>
+             <button type="button" class="dropdown-item rounded-pill"  id="button2" style="background-color: rgb(155, 14, 204);" >Purple</button>
+             <div class="dropdown-divider"></div>
+             <button type="button" class="dropdown-item rounded-pill"  id="button3" style="background-color: rgb(14, 141, 204);" >Light Blue</button>
+             <div class="dropdown-divider"></div>
+             <button type="button" class="dropdown-item rounded-pill"  id="button4" style="background-color: #4bd1b6;" >Light Green</button>
+           </div>
+         </li>
+
         </ul>
 
         <!--                   INICIO DE BUSCADOR                -->

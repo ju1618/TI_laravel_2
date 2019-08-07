@@ -17,6 +17,8 @@
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+<link rel="stylesheet" href="/css/navstyle.css">
+<link rel="stylesheet" href="/css/styles-footer.css">
 
 @section('content')
 <div class="productContainer">
@@ -49,9 +51,12 @@
 
       <div class="form-group">
         <label for="category">Categoria: </label>
+
         <select class="form-control" name="category" >
-          <option>Cocina</option>
-          <option>Oficina</option>
+          @foreach ($categories as $category)
+          <option>{{$category->name}}</option>
+          @endforeach
+          
         </select>
       </div>
 

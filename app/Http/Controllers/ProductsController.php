@@ -37,8 +37,9 @@ class ProductsController extends Controller
     public function create()
     {
         //
+        $categories=Category::all();
 
-        return view('products.addProduct');
+        return view('products.addProduct', compact('categories'));
     }
 
     /**
@@ -120,6 +121,7 @@ class ProductsController extends Controller
     {
         //
     }
+
 
 
     public function buscar(Request $request)
