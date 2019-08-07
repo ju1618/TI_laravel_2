@@ -42,6 +42,7 @@ Route::get('/',  'ProductsController@index');
 Route::get('/products/addProduct', 'ProductsController@create');
 Route::post('/products/addProduct', 'ProductsController@store');
 Route::get('/buscar',  'ProductsController@buscar');
+Route::get('/buscar/{id}',  'ProductsController@show');
 
 Route::get('faq', 'FaqController@index');
 

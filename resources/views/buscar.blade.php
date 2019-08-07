@@ -3,6 +3,7 @@
 @extends('layouts.template')
 
 @section('content')
+
 <style media="screen">
 
   body{
@@ -98,8 +99,16 @@
 
   <!-- check if $buscar variable is set, display buscar result -->
     @if (isset($producto))
-        <div class="panel panel-success">
+    <!-- <div class="panel-heading card-title h2 font-weight-bold">Resultado de la busqueda</div>
+      <ul>
+      @foreach ($producto as $oneProduct)
+        <li class="list-group-item list-group-item-action"><a href="/buscar/{{$oneProduct->id}}">{{$oneProduct->title}}</a></li>
+      @endforeach
+      </ul> -->
+
+      <div class="panel panel-success">
             <div class="panel-heading card-title h2 font-weight-bold">Resultado de la busqueda</div>
+
             <div class="panel-body">
 
                 <div class='table-responsive'>
@@ -112,6 +121,7 @@
                         <th>Precio</th>
                         <th>Descripcion</th>
                         <th>Editar</th>
+                        <th>Agregar al carrito</th>
 
                       </tr>
                     </thead>
@@ -136,7 +146,8 @@
                             <td scope="col align-middle">{{$productos->category->name}}</td>
                             <td scope="col col-auto align-middle"><div class="col-md-auto">$ {{$productos['price']}} </div></td>
                             <td scope="col align-middle">{{$productos['description']}}</td>
-                            <td scope="col align-middle"> <a href="#" class="btn btn-info"> Ir </a> </td>
+                            <td scope="col align-middle"> <a href="#" class="btn btn-outline-danger btn-sm"> Ir </a> </td>
+                            <td scope="col align-middle"> <a href="#" class="btn btn-outline-danger btn-sm"> Agregar </a> </td>
 
                         </tr>
                     @endforeach
@@ -144,7 +155,7 @@
                     </tbody>
                         </table>
                         <!-- <center>{{ $producto->appends(Request::only('title','price'))->links() }}</center> -->
-                    </div>
+                  </div>
 
             </div>
             <div class="panel-footer">

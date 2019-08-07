@@ -92,10 +92,10 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
-        // $products=Product::find($id);
-        //
-        // return view('products.show', compact('products'));
+
+        $products=Product::find($id);
+
+        return view('detalle', compact('products'));
     }
 
     /**
