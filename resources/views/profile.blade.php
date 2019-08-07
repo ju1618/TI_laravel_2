@@ -2,8 +2,6 @@
 @section ('pageTitle','Profile')
 
 @extends('layouts.template')
-<!-- Vinculación externa de CSS-->
-<link rel="stylesheet" href="/css/perfilusuario.css">
 
 @section('content')
 
@@ -22,7 +20,7 @@
     font-size: 16px;
     font-weight: 300;
     line-height: 30px;
-    padding-top: 100px;
+    padding-top: 70px;
     background-image: url("../images/gg.jpg");
     background-size: cover;
   }
@@ -45,14 +43,14 @@
       overflow: auto;
   }
 
-  .contenedor1 {
-    width: 28vw ;
+  .tap-sport-tools {
+    width: 28vw;
     background-color: #4bd1b6;
     float: left;
     clear: both;
     padding: 8px;
     margin: 8px;
-    height: 1700px;
+    height: auto;
     border-radius: 10px 10px;
     text-align: center;
     overflow: hidden;
@@ -65,7 +63,7 @@
     float: right;
     padding: 4px;
     margin: 5px;
-    height: 380px;
+    height: auto;
     overflow: hidden;
     border-radius: 10px 10px;
     border: 10px solid #F52854;
@@ -82,7 +80,7 @@
     background-color: beige;
     padding: 20px;
     margin: 10px;
-    height: 440px;
+    height: 77vh;
     border: 10px solid #F52854;
     overflow: hidden;
     border-radius: 10px 10px;
@@ -94,7 +92,7 @@
     background-color: #F52854;
     padding: 15px;
     margin: 8px;
-    height: 550px;
+    height: auto;
     border: 10px solid #F52854;
     overflow: hidden;
     border-radius: 10px 10px;
@@ -112,13 +110,13 @@
     background-color: rgba(59,20,173,0.11);
     padding: 10px;
     margin: 5px;
-    height: 300px;
+    height: auto;
     border: 10px solid #F52854;
     overflow: hidden;
     border-radius: 10px 10px;
   }
 
-  @media screen and (max-width: 790px) {
+  /* @media screen and (max-width: 790px) {
     .contenedorprincipal {
       width: 100vw;
     }
@@ -128,7 +126,7 @@
     .contenedor1, .contenedor2, .contenedor3, .contenedor4, .contenedor5 {
       width: 100vw;
       clear: both;
-    }
+    } */
   }
 
 </style>
@@ -228,7 +226,7 @@ cursor: pointer;
 <!---Fin de la hoja de estilo del JS-->
 
     <div class="container">
-       <div class="contenedor1">
+       <div data-type="timetable" data-id="85503" id="wgt-85503" class="tap-sport-tools" style="width:100%; height:auto;">
          <div class="row">
            <div class="col-lg-12">
                 <h1 class = "item"><center>Mi Perfil, {{ $user->name }}</center></h1>
@@ -238,27 +236,34 @@ cursor: pointer;
                <label>Actualizar imagen</label>
                <input type="file" name="avatar">
                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+               <input type="hidden" name="id" value="{{ Auth::user()->id }}">
+               <br>
+               <br>
+               <h2 id="MisDatos" class = "item"><em><strong><center>Mis datos</center></strong></em></li></h2>
+               <br>
+               <p><strong>Usuario: </strong></p>
+               <input type="text" name="username" value="{{ $user->username }}">
+               <br>
+               <p><strong>Nombre: </strong>   </p>
+               <input type="text" name="name" value="{{ $user->name }}">
+              <p><strong>Apellido: </strong>   </p>
+               <input type="text" name="lastname" value="{{ $user->lastname}}">
+               <br>
+               <p><strong>Pais: </strong>  </p>
+               <input type="text" name="country" value="{{ $user->country }}">
+               <br>
+               <p><strong>Email: </strong></p>
+               <input type="text" name="email" value="{{ $user->email }}">
+               <br>
                <br>
                <br>
                <input type="submit" class="pull-right btn btn-sm btn-primary">
                <br>
-           </form>
-           <br>
-           <h2 id="MisDatos" class = "item"><em><strong><center>Mis datos</center></strong></em></li></h2>
-           <br>
-           <p><strong>Usuario: </strong>  {{ $user->username }} </p>
-           <br>
-           <p><strong>Nombre: </strong> {{ $user->name }} {{ $user->lastname}} </p>
-           <br>
-           <p><strong>Pais: </strong>  {{ $user->country }}</p>
-           <br>
-           <p><strong>Email: </strong> {{ $user->email }} </p>
-           <br>
-           <br>
+            </form>
         </div>
       </div>
      </div>
-     <div class="contenedor2">
+     <div id="wgt-ft-85503" style="width:100%" class="contenedor2">
        <div class="row">
         <div class="col-lg-12">
           <br>
@@ -272,6 +277,7 @@ cursor: pointer;
             <br>
             <li></li><a class="item" href="#cambiopass">Contraseña</a>
             <br>
+            <br>
             <li><a href="#" class="btn btn-info btn-lg">
             <span class="glyphicon glyphicon-log-out"></span>Salir
            </a></li>
@@ -279,7 +285,7 @@ cursor: pointer;
        </div>
       </div>
     </div>
-      <div class="contenedor3">
+      <div class="contenedor3" id="wgt-ft-85503" style="width:100%">
         <div class="row">
          <div class="col-lg-12">
          <br>
@@ -290,7 +296,7 @@ cursor: pointer;
       </div>
     </div>
    </div>
-      <div class="contenedor4">
+      <div class="contenedor4" id="wgt-ft-85503" style="width:100%">
         <div class="row">
          <div class="col-lg-12">
          <br>
@@ -329,7 +335,7 @@ cursor: pointer;
       </div>
     </div>
    </div>
-      <div class="contenedor5">
+      <div class="contenedor5" id="wgt-ft-85503" style="width:100%">
         <div class="row">
          <div class="col-lg-12">
          <br>

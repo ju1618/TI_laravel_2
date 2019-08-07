@@ -1,0 +1,58 @@
+ul li{
+  list-style: none;
+}
+header .mainHeader{
+  background-image:url('..public/images/dogue.jpg');
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  opacity: 0.9;
+  width: 100vw;
+  height: 500px;
+  padding: 20px;
+}
+
+/* CAROUSEL-PRODUCTS  */
+.title-product {
+  font-family: 'Fira Sans', sans-serif;
+  color:rgb(87, 155, 101);
+  width: 50%;
+  height: 40px;
+  position: absolute;
+  top: 0;
+}
+.products{
+  margin-top:50px;
+  margin-bottom:50px;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.carousel-product .carousel-control-prev img,
+.carousel-product .carousel-control-next img {
+  width: 100%;
+}
+
+.carousel-product .carousel-control-prev,
+.carousel-product .carousel-control-next {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+}
+
+.carousel-product .carousel-control-prev {
+  left: auto;
+  right: 50px !important;
+}
+.productContainer{
+  background-color: rgba(15, 43, 48, 0.69);
+  margin:50px;
+  padding: 50px;
+}
+.back-acount{
+  margin-bottom: 50px;
+}
+.products{
+  margin: 100px;
+}

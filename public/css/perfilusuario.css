@@ -1,0 +1,115 @@
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  padding-top: 100px;
+  background-image: url("../images/gg.jpg");
+  background-size: cover;
+  overflow: auto;
+}
+
+img{
+  width: 100%;/*para que tenga el ancho de us contenedor*/
+}
+
+
+.fotousuario {
+ width: 40%;
+ height: auto;
+}
+
+
+.container {
+    position: relative;
+    width: 100%;
+    margin-top: 120px;
+    overflow: auto;
+}
+
+.contenedor1 {
+  width: 35% ;
+  background-color: #4bd1b6;
+  float: left;
+  clear: both;
+  padding: 20px;
+  margin: 10px;
+  height: 1700px;
+  border-radius: 10px 10px;
+  text-align: center;
+  overflow: hidden;
+  border: 10px solid #F52854;
+}
+
+.contenedor2 {
+  width: 60%;
+  background-color: rgba(75,145,214,0.11);
+  float: right;
+  padding: 4px;
+  margin: 5px;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 10px 10px;
+  border: 10px solid #F52854;
+}
+
+.item {
+  font-size: 24px;
+  color: black;
+}
+
+.contenedor3 {
+  width: 60%;
+  float: right;
+  background-color: beige;
+  padding: 20px;
+  margin: 10px;
+  height: 440px;
+  border: 10px solid #F52854;
+  overflow: hidden;
+  border-radius: 10px 10px;
+}
+
+.contenedor4 {
+  width: 60%;
+  float: right;
+  background-color: #F52854;
+  padding: 15px;
+  margin: 8px;
+  height: 550px;
+  border: 10px solid #F52854;
+  overflow: hidden;
+  border-radius: 10px 10px;
+}
+
+
+.facturadecompra {
+  width: 49%;
+  height: auto;
+}
+
+.contenedor5 {
+  width: 60%;
+  float: right;
+  background-color: rgba(59,20,173,0.11);
+  padding: 10px;
+  margin: 5px;
+  height: 300px;
+  border: 10px solid #F52854;
+  overflow: hidden;
+  border-radius: 10px 10px;
+}
+
+@media screen and (max-width: 790px) {
+  .contenedorprincipal {
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 312px) {
+  .contenedor1, .contenedor2, .contenedor3, .contenedor4, .contenedor5 {
+    width: 100vw;
+    clear: both;
+  }
+}

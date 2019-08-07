@@ -6,7 +6,7 @@ body {
   color: #fff;
   text-align: center;
   /*background-color: #4bd1b6;*/
-  background-image: url("../images/mi-fondo-login-2.jpg");
+  background-image: url("../images/eeee.jpg");
   background-size: cover;
   background-color: gray;
   overflow: auto;
@@ -27,7 +27,7 @@ h1, h2 {
   font-size: 38px;
   font-weight: 100;
   line-height: 50px;
-  color: #82E0AA;
+  color: #42CFA0;
 }
 
 h3 {
@@ -73,8 +73,7 @@ h6 {
 .mi-cabecera-form {
   overflow: hidden;
   padding: 0 25px 15px 25px;
-  /*background: #F52854;*/
-  background: rgb(91, 196, 155);
+  background: #F52854;
   -moz-border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   border-radius: 10px 10px 0 0;
@@ -112,8 +111,7 @@ h6 {
 
 .mi-principal-form {
   padding: 25px 25px 25px 25px;
-  /*background: #F42450;*/
-  background: rgb(89, 169, 137);
+  background: #F42450;
   opacity: 0.9;
   border-radius: 0 0 10px 10px;
   margin-bottom: 10px;
@@ -144,7 +142,8 @@ h6 {
 }
 
 .mis-redes-sociales p {
-  color: black;
+  color: white;
+  padding-top: 5%;
 }
 
 input[type="text"],
@@ -171,8 +170,8 @@ textarea.form-control:focus {
 .mi-sidebar{
   background: #42CFA0;
   /*border: 3px solid black;*/
-  width: 40px;
-  height: 200px;
+  width: 50px;
+  height: 180px;
   position: fixed;
   top: 30%;
   border-top-right-radius: 20px;
@@ -180,21 +179,21 @@ textarea.form-control:focus {
 }
 
 .list-inline li {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 6px;
+  margin-bottom: 6px;
   font-size: 100%;
   overflow: hidden;
 }
 
 
 .list-inline li a i {
-    margin-top: 10px;
-    padding-right: 10px;
+
 }
 
 .mi-footer {
+    margin-top: 20px;
     background: black;
-    height: 50px;
+    height: 8%;
 }
 
 
@@ -204,15 +203,33 @@ textarea.form-control:focus {
 }
 
 .mi-texto-footer {
-  padding-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+
 }
 
-
-.mi-check {
-  padding-top: 9px;
+.mis-botones-redes {
+  margin-bottom: 10px;
 }
 
 
 .invalid-feedback  {
   color: white;
+}
+
+.show-hide-passwd {
+  margin-top: 5px;
+}
+
+
+.show-hide-repasswd {
+  margin-top: 5px;
+}
+
+.mi-check {
+  padding-top: 9px;
+}
+
+.mi-principal-form .mi-boton {
+  margin-top: 30px;
 }
