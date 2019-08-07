@@ -20,25 +20,14 @@ Route::bind('product', function($slug){
 // });
 
 
-Route::get('profile', 'UserController@profile');
-Route::post('profile', 'UserController@update_avatar');
-
-// //Ruta de perfil de usuario
-// Route::get('/perfil', 'PerfilController@index')->middleware('auth');
-//
-// //Modificaciones del perfil de usuario
-// Route::resource('perfil', 'PerfilController');
-// Route::resource('perfil/create', 'PerfilController@create');
-// Route::post('altaperfil', ['as' => 'perfil.store', 'uses' => 'PerfilController@store']);
+Route::get('/home', 'UserController@profile');
+Route::post('/home', 'UserController@update_avatar');
 
 //Metodo de pago: Paypal
-
 //Enviamos el pedido a Paypal
 Route::get('payment', array('as' => 'payment', 'uses' => 'PaypalController@postPayment',));
-
 //Después de realizar el pago Paypal redirecciona a esta Ruta
 Route::get('payment/status', array('as' => 'payment.status', 'uses' => 'PaypalController@getPaymentStatus',));
-
 //---Carrito---
 Route::get('cart/show', ['as'=>'cart-show', 'uses' => 'CartController@show']);
 Route::get('cart/add/{product}', ['as'=> 'cart-add', 'uses' => 'CartController@add']);
@@ -46,7 +35,6 @@ Route::get('cart/delete/{product}', ['as'=> 'cart-delete', 'uses' => 'CartContro
 Route::get('cart/trash', ['as'=> 'cart-trash', 'uses' => 'CartController@trash']);
 Route::get('cart/update/{product}', ['as'=> 'cart-update', 'uses' => 'CartController@update']);
 Route::get('order-detail', ['middleware'=>'auth:user', 'as'=>'order-detail', 'uses'=>'CartController@orderDetail']);
-
 
 // Rutas de Products
 Route::get('/',  'ProductsController@index');
@@ -59,15 +47,15 @@ Route::get('faq', 'FaqController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+//
+// Auth::routes();
+//
+// Route::get('/home', 'HomeController@index')->name('home');
+//
+// Auth::routes();
+//
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/logout', function(){
    Auth::logout();

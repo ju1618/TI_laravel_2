@@ -27,7 +27,7 @@
 
     <!-------------- INICIO DEL NAV BAR ----------->
     <nav class="main-nav navbar fixed-top navbar navbar-expand-lg navbar-light">
-      <a class= "navbar-brand" href="/home">
+      <a class= "navbar-brand" href="/">
         <img class="logo navbar-brand" src="images/logo1.png" alt="logo tu empresa">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
       <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item active">
-            <a class= "nav-link" href="/home">Home </a>
+            <a class= "nav-link" href="/">Inicio </a>
           </li>
           <!-- <li class="nav-item active">
             <a class= "nav-link" href="#">Productos</a>
@@ -50,7 +50,7 @@
             </li>
           @else
             <li class="nav-item">
-              <a class= "nav-link" href="/profile">Perfil</a>
+              <a class= "nav-link" href="/home">Perfil</a>
             </li>
             <li class="nav-item">
               <a class= "nav-link" href="/logout">Cerrar Sesión</a>
@@ -105,12 +105,12 @@
           <h5 class="text-center d-sm-block">Mapa del sitio</h5>
           <ol>
             <hr>
-            <li> <a href="/home">Home</a> </li>
+            <li> <a href="/">Inicio</a> </li>
             @if (!Auth::user())
               <li> <a href="/login">Ingresar</a> </li>
               <li> <a href="/register">Registrarse</a> </li>
             @else
-              <li> <a href="/profile">Perfil</a> </li>
+              <li> <a href="/home">Perfil</a> </li>
               <li> <a href="/logout">Cerrar Sesión</a> </li>
             @endif
             <li> <a href="/faq">FAQ</a> </li>
@@ -142,7 +142,7 @@
     <hr>
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
       <p class="float-left" style="color: #000;">&copy; 2019 Trabajo Integrador DH. </p>
-      <p class="float-right footer-link" style="color: #000;"><a href="/">-Home- </a></p>
+      <p class="float-right footer-link" style="color: #000;"><a href="/">-Inicio- </a></p>
       <p class="float-right footer-link" style="color: #000;"><a href="#">-Volver arriba-</a></p>
     </div>
 

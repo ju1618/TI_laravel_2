@@ -92,6 +92,11 @@ padding-top: 10px;
   border-radius: 2px;
 }
 
+.arrow-control-pr{
+  width: 25px;
+  height: 65px;
+  border-radius: 2px;
+}
 .carousel-control-prev .arrow-control{
   display: none;
 }
@@ -215,6 +220,10 @@ padding-top: 10px;
   header{
     margin-bottom:10px;
   }
+.special-item{
+  height: 500px;
+}
+
   .social-links {
     position: fixed;
     left: 0;
