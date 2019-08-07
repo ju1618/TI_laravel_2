@@ -20,6 +20,8 @@
     <!-- Y normalizo -->
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssnormalize/cssnormalize-min.css">
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="{!! asset('js/validarForms.js') !!}">
+    </script>
 		<script>
 		$(document).on('ready', function() {
 			$('#show-hide-passwd').on('click', function(e) {
@@ -68,27 +70,29 @@
                                     {{ csrf_field() }}
 
                                       <!-- Agrupamientos de los inputs, usamos unas clases propias de bootstrap -->
-                                      <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                            <input type="text" name="email" value="{{ old('email') }}" placeholder="Ingresa tu usuario..." class="form-control" id="email" required autofocus>
-                                            <!-- <div class="invalid-feedback">
+                                      <div class="form-group{{ $errors->has('login') ? ' has-error' : '' }}">
+                                            <input data-nombre="user/email" type="text" name="login" value="{{ old('login') }}" placeholder="Ingresa tu usuario o email..." class="form-control" id="login">
+                                            <strong>
+                                              <div class="invalid-feedback">
 
-        				                            </div> -->
-                                            @if ($errors->has('email'))
+          				                            </div>
+                                            </strong>
+                                            @if ($errors->has('login'))
                                               <span class="help-block">
-                                                <strong>{{ $errors->first('email') }}</strong>
+                                                <strong id="support-class">{{ $errors->first('login') }}</strong>
                                               </span>
                                             @endif
 
                                       </div>
                                       <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                            <input type="password" name="password" value="" placeholder="Ingresa tu password..." class="form-control" id="password" required>
-																						<i id="show-hide-passwd" action="hide" class="fas fa-eye-slash mi-check" aria-hidden="true"></i>
-                                            <!-- <div class="invalid-feedback">
+                                            <input data-nombre="password" type="password" name="password" value="" placeholder="Ingresa tu password..." class="form-control" id="password">
+																						<i id="show-hide-passwd" action="hide" class="fas fa-eye-slash mi-check"></i>
+                                            <div style="none" class="invalid-feedback">
 
-        				                            </div> -->
+        				                            </div>
                                             @if ($errors->has('password'))
                                               <span class="help-block">
-                                                <strong>{{ $errors->first('password') }}</strong>
+                                                <strong id="">{{ $errors->first('password') }}</strong>
                                               </span>
                                             @endif
 
@@ -119,9 +123,9 @@
         </div>
           <div class="col-xs-12 col-sm-12 col-md-12 mi-sidebar">
             <ul class="nav navbar-nav list-inline">
-                <li class="list-inline-item"><a class="" href="/"><i class="fas fa-home"></i></a></li>
-                <li class="list-inline-item"><a class="" href="/profile"><i class="fas fa-user-alt"></i></a></li>
-                <li class="list-inline-item"><a class="" href="/faq"><i class="fas fa-question"></i></li>
+                <li class="list-inline-item"><a class="" href="index.php"><i class="fas fa-home"></i></a></li>
+                <li class="list-inline-item"><a class="" href="perfilusuario.php"><i class="fas fa-user-alt"></i></a></li>
+                <li class="list-inline-item"><a class="" href="faqs.php"><i class="fas fa-question"></i></li>
                 <li class="list-inline-item"><a class="" href="#"><i class="fas fa-headset"></i></li>
             </ul>
           </div>

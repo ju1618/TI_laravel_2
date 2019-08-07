@@ -6,7 +6,7 @@ body {
   color: #fff;
   text-align: center;
   /*background-color: #4bd1b6;*/
-  background-image: url("../images/mi-fondo-login.jpg");
+  background-image: url("../images/mi-fondo-login-2.jpg");
   background-size: cover;
   background-color: gray;
   overflow: auto;
@@ -27,7 +27,7 @@ h1, h2 {
   font-size: 38px;
   font-weight: 100;
   line-height: 50px;
-  color: #82E0AA;
+  color: #5BB699;
 }
 
 h3 {
@@ -73,7 +73,8 @@ h6 {
 .mi-cabecera-form {
   overflow: hidden;
   padding: 0 25px 15px 25px;
-  background: #F52854;
+  /*background: #F52854;*/
+  background: rgb(91, 196, 155);
   -moz-border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   border-radius: 10px 10px 0 0;
@@ -111,7 +112,8 @@ h6 {
 
 .mi-principal-form {
   padding: 25px 25px 25px 25px;
-  background: #F42450;
+  /*background: #F42450;*/
+  background: rgb(89, 169, 137);
   opacity: 0.9;
   border-radius: 0 0 10px 10px;
   margin-bottom: 10px;
@@ -129,7 +131,7 @@ h6 {
 }
 
 .mi-boton-redsocial {
-  color: white;
+  color: #007bff;
 }
 
 .mi-boton-redsocial  i {
@@ -137,7 +139,7 @@ h6 {
 }
 
 .mi-boton-redsocial:hover {
-  color: #7D3C98;
+  color: red;
   font-size: 15px;
 }
 
@@ -206,6 +208,6 @@ textarea.form-control:focus {
 }
 
 
-.mi-check {
-  padding-top: 9px;
+.invalid-feedback  {
+  color: white;
 }

@@ -151,7 +151,7 @@ cursor: pointer;
                                    </script>
                               </div>
                             </td>
-                            <td scope="col align-middle">{{$productos['category_id']}}</td>
+                            <td scope="col align-middle">{{$productos->category->name}}</td>
                             <td scope="col col-auto align-middle"><div class="col-md-auto">$ {{$productos['price']}} </div></td>
                             <td scope="col align-middle">{{$productos['description']}}</td>
                             <td scope="col align-middle"> <a href="#" class="btn btn-info"> Ir </a> </td>
