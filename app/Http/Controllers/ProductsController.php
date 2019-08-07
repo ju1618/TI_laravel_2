@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
 use App\Product;
+use App\Category;
 
 class ProductsController extends Controller
 {
@@ -117,30 +121,26 @@ class ProductsController extends Controller
         //
     }
 
-    public function buscar()
-    {
-      // $posts = Product::where('title', 'like', '%'.Input::get('search').'%')
-      //           ->orWhere('description', 'like', '%'.Input::get('search').'%')
-      //           ->orderBy('id', 'desc')->paginate(6);
 
-      return view('buscar');
-    }
-
-    public function listar(Request $request)
+    public function buscar(Request $request)
     {
       $input = $request->all();
 
       if($request->get('search')){
           $producto = Product::where("title", "LIKE", "%{$request->get('search')}%")
-              ->paginate(50);
-        return view('listado', compact('producto'));
-      }
-      //else{
-      //  $noticias = Noticia::paginate(5);
-      //}
+                      ->paginate(50);
+          // $categoria = DB::table('categories')->select('title')->where('id', '{{$producto->'category_id'}}'); //quiero que me devuelva
+                // SELECT title FROM categories WHERE id = $producto('category_id')
 
-      // return response($noticias);
-      return view('listado');
+            // $categoria = DB::select('SELECT title FROM categories WHERE id = ?' , ['$producto['category_id']']);
+            $categoria = DB::table('categories')
+                              ->join('products', 'categories.id', '=', 'products.category_id')
+                              ->value('name');
+
+        return view('buscar', compact('producto', 'categoria'));
+      }
+
+      return redirect('/home');
 
     }
     /**

@@ -38,15 +38,15 @@
           <li class="nav-item active">
             <a class= "nav-link" href="/home">Home </a>
           </li>
-          <li class="nav-item active">
+          <!-- <li class="nav-item active">
             <a class= "nav-link" href="#">Productos</a>
-          </li>
+          </li> -->
           @if (!Auth::user())
             <li class="nav-item">
               <a class= "nav-link" href="/login">Ingresar</a>
             </li>
             <li class="nav-item">
-              <a class= "nav-link" href="/registrer">Registrarse</a>
+              <a class= "nav-link" href="/register">Registrarse</a>
             </li>
           @else
             <li class="nav-item">
@@ -61,10 +61,13 @@
             <a class= "nav-link" href="/faq">FAQ</a>
           </li>
         </ul>
-        <form class="d-flex align-items-center" method="get" action="/listado">
-      		<input type="text" name="search" required="required" class="rounded align-self-center">
+
+        <!--                   INICIO DE BUSCADOR                -->
+        <form class="d-flex align-items-center" method="get" action="/buscar">
+      		<input type="text" name="search" required="required" class="rounded align-self-center" placeholder="Buscar Producto">
       		<input type="submit" class="btn btn-primary" value="Buscar">
       	</form>
+        <!--                   FIN DE BUSCADOR                -->
       </div>
     </nav>
     <!-- ------------ FIN DEL NAVBAR -------- -->
