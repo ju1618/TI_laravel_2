@@ -22,23 +22,23 @@ Route::bind('product', function($slug){
 
 Route::get('/home', 'UserController@profile');
 Route::post('/home', 'UserController@update_avatar');
-Route::get('/changepassword', function() {
+Route::get('/changepassword', function(){
   return view('changepassword');
 });
-Route::get('/changepassword','UserController@showChangePasswordForm');
+Route::post('/changepassword','UserController@changepassword')->name('changepassword');
 
-//Metodo de pago: Paypal
-//Enviamos el pedido a Paypal
-Route::get('payment', array('as' => 'payment', 'uses' => 'PaypalController@postPayment',));
-//Después de realizar el pago Paypal redirecciona a esta Ruta
-Route::get('payment/status', array('as' => 'payment.status', 'uses' => 'PaypalController@getPaymentStatus',));
+// //Metodo de pago: Paypal
+// //Enviamos el pedido a Paypal
+// Route::get('payment', array('as' => 'payment', 'uses' => 'PaypalController@postPayment',));
+// //Después de realizar el pago Paypal redirecciona a esta Ruta
+// Route::get('payment/status', array('as' => 'payment.status', 'uses' => 'PaypalController@getPaymentStatus',));
 //---Carrito---
-Route::get('cart/show', ['as'=>'cart-show', 'uses' => 'CartController@show']);
-Route::get('cart/add/{product}', ['as'=> 'cart-add', 'uses' => 'CartController@add']);
-Route::get('cart/delete/{product}', ['as'=> 'cart-delete', 'uses' => 'CartController@delete']);
-Route::get('cart/trash', ['as'=> 'cart-trash', 'uses' => 'CartController@trash']);
-Route::get('cart/update/{product}', ['as'=> 'cart-update', 'uses' => 'CartController@update']);
-Route::get('order-detail', ['middleware'=>'auth:user', 'as'=>'order-detail', 'uses'=>'CartController@orderDetail']);
+// Route::get('cart/show', ['as'=>'cart-show', 'uses' => 'CartController@show']);
+// Route::get('cart/add/{product}', ['as'=> 'cart-add', 'uses' => 'CartController@add']);
+// Route::get('cart/delete/{product}', ['as'=> 'cart-delete', 'uses' => 'CartController@delete']);
+// Route::get('cart/trash', ['as'=> 'cart-trash', 'uses' => 'CartController@trash']);
+// Route::get('cart/update/{product}', ['as'=> 'cart-update', 'uses' => 'CartController@update']);
+// Route::get('order-detail', ['middleware'=>'auth:user', 'as'=>'order-detail', 'uses'=>'CartController@orderDetail']);
 
 // Rutas de Products
 Route::get('/',  'ProductsController@index');

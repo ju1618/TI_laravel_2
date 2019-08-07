@@ -339,10 +339,8 @@ cursor: pointer;
          <br>
          <h2 id="cambiopass" class="item"><em><strong><center>Contraseña</center></strong></em></h2>
          <br>
-          <a href="#reset">Reestablecer contraseña</a>
          <br>
-         <br>
-         <a  href="changepassword.php">Cambiar contraseña</a>
+         <a  href="{{ route('changepassword') }}">Cambiar contraseña</a>
          <br>
          <br>
          <a  href="{{ route('logout') }}" class="btn btn-info btn-lg">
