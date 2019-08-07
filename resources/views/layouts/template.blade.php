@@ -36,7 +36,7 @@
       <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item active">
-            <a class= "nav-link" href="/home">Home </a>
+            <a class= "nav-link" href="/">Inicio </a>
           </li>
           <!-- <li class="nav-item active">
             <a class= "nav-link" href="#">Productos</a>
@@ -105,7 +105,7 @@
           <h5 class="text-center d-sm-block">Mapa del sitio</h5>
           <ol>
             <hr>
-            <li> <a href="/">Home</a> </li>
+            <li> <a href="/">Inicio</a> </li>
             @if (!Auth::user())
               <li> <a href="/login">Ingresar</a> </li>
               <li> <a href="/register">Registrarse</a> </li>
@@ -142,7 +142,7 @@
     <hr>
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
       <p class="float-left" style="color: #000;">&copy; 2019 Trabajo Integrador DH. </p>
-      <p class="float-right footer-link" style="color: #000;"><a href="/">-Home- </a></p>
+      <p class="float-right footer-link" style="color: #000;"><a href="/">-Inicio- </a></p>
       <p class="float-right footer-link" style="color: #000;"><a href="#">-Volver arriba-</a></p>
     </div>
 
