@@ -18,11 +18,12 @@
   body{
     font-family:'Fira Sans', sans-serif;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 300px;
     line-height: 30px;
     padding-top: 70px;
     background-image: url("../images/gg.jpg");
     background-size: cover;
+    overflow: auto;
   }
 
   img{
@@ -40,11 +41,11 @@
       position: relative;
       width: 100vw;
       margin-top: 10%;
-      overflow: auto;
+      overflow: hidden;
   }
 
   .tap-sport-tools {
-    width: 28vw;
+    width: 35vw;
     background-color: #4bd1b6;
     float: left;
     clear: both;
@@ -58,7 +59,7 @@
   }
 
   .contenedor2 {
-    width: 49vw;
+    width: 38vw;
     background-color: rgba(75,145,214,0.11);
     float: right;
     padding: 4px;
@@ -75,7 +76,7 @@
   }
 
   .contenedor3 {
-    width: 49vw;
+    width: 38vw;
     float: right;
     background-color: beige;
     padding: 20px;
@@ -87,7 +88,7 @@
   }
 
   .contenedor4 {
-    width: 49vw;
+    width: 38vw;
     float: right;
     background-color: #F52854;
     padding: 15px;
@@ -105,8 +106,8 @@
   }
 
   .contenedor5 {
-    width: 49vw;
-    float: right;
+    width: 35vw;
+    float: left;
     background-color: rgba(59,20,173,0.11);
     padding: 10px;
     margin: 5px;
@@ -116,17 +117,17 @@
     border-radius: 10px 10px;
   }
 
-  /* @media screen and (max-width: 790px) {
+  @media screen and (min-width: 790px) {
     .contenedorprincipal {
       width: 100vw;
     }
   }
 
-  @media screen and (max-width: 312px) {
+  @media screen and (max-width: 240px) {
     .contenedor1, .contenedor2, .contenedor3, .contenedor4, .contenedor5 {
       width: 100vw;
       clear: both;
-    } */
+    }
   }
 
 </style>
@@ -232,7 +233,7 @@ cursor: pointer;
                 <h1 class = "item"><center>Mi Perfil, {{ $user->name }}</center></h1>
 
                  <img src="{{asset('storage/avatars/'.Auth::user()->avatar)}}" name="avatar" class="img-thumbnail img-responsive" style="width:300px; height:300px; float:center; border-radius:70%; margin-right:25px;">
-           <form enctype="multipart/form-data" action="/profile" method="POST">
+           <form enctype="multipart/form-data" action="/home" method="POST">
                <label>Actualizar imagen</label>
                <input type="file" name="avatar">
                <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -263,7 +264,7 @@ cursor: pointer;
         </div>
       </div>
      </div>
-     <div id="wgt-ft-85503" style="width:100%" class="contenedor2">
+     <div id="wgt-ft-85503" class="contenedor2" style="width:100%; height:auto;">
        <div class="row">
         <div class="col-lg-12">
           <br>
@@ -278,25 +279,22 @@ cursor: pointer;
             <li></li><a class="item" href="#cambiopass">Contraseña</a>
             <br>
             <br>
-            <li><a href="#" class="btn btn-info btn-lg">
-            <span class="glyphicon glyphicon-log-out"></span>Salir
-           </a></li>
           </ul>
        </div>
       </div>
     </div>
-      <div class="contenedor3" id="wgt-ft-85503" style="width:100%">
+      <div class="contenedor3" id="wgt-ft-85503" style="width:100%; height:auto;">
         <div class="row">
          <div class="col-lg-12">
          <br>
          <h2 id="compras" class="item"><em><strong><center>Carrito de Compras</center></strong></em></li></h2>
          <br>
-
+          <img id="myImg" class="carritoCompra"  src="/images/carritocompra1.jpg" alt="carritoCompra" style="width:100%;max-width:300px">
          <br>
       </div>
     </div>
    </div>
-      <div class="contenedor4" id="wgt-ft-85503" style="width:100%">
+      <div class="contenedor4" id="wgt-ft-85503" style="width:100%; height:auto;">
         <div class="row">
          <div class="col-lg-12">
          <br>
@@ -335,17 +333,18 @@ cursor: pointer;
       </div>
     </div>
    </div>
-      <div class="contenedor5" id="wgt-ft-85503" style="width:100%">
+      <div class="contenedor5" id="wgt-ft-85503" style="width:100%; height:auto;">
         <div class="row">
          <div class="col-lg-12">
          <br>
          <h2 id="cambiopass" class="item"><em><strong><center>Contraseña</center></strong></em></h2>
          <br>
-          <a href="#reset">Reestablecer contraseña</a>
+         <br>
+         <a  href="{{ route('changepassword') }}">Cambiar contraseña</a>
          <br>
          <br>
-         <a  href="cambiar_contrasenia.php">Cambiar contraseña</a>
-         <br>
+         <a  href="{{ route('logout') }}" class="btn btn-info btn-lg">
+         <span class="glyphicon glyphicon-log-out"></span>Salir</a>
       </div>
     </div>
    </div>
