@@ -139,8 +139,18 @@ theForm.addEventListener('submit', function (event) {
 	console.log('Campos con errores:', errorsObj);
 	console.log('Cantidad de campos con errores:', Object.keys(errorsObj).length);
 
+	if (document.getElementById('country').value.toLowerCase() != 'argantina') {
+		var auxC = document.getElementById('city');
+		this.classList.remove('is-invalid');
+		this.classList.add('is-valid');
+		this.nextElementSibling.innerHTML = '';
+	}
 	// Si el objeto que contiene los errores no esta vacÃ­o evitamos que se SUBMITEE el formulario
 	if (Object.keys(errorsObj).length > 0) {
+		if (Object.keys(errorsObj['city']) == true) {
+			console.log('te botonea el city');
+		}
+
 		event.preventDefault();
     console.log('pervino el submit');
 	} else {
